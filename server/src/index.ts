@@ -40,8 +40,8 @@ const main = () => {
   });
 
   app.get("/sendmessage", (req, res: Response) => {
-    const text = req.body.text;
-    const sender = req.body.sender;
+    const text = req.query.text;
+    const sender = req.query.sender;
     const message = {
       sender: sender,
       text: text
