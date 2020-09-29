@@ -40,7 +40,12 @@ const main = () => {
         res.send(messages);
     });
     app.get("/sendmessage", (req, res) => {
-        const message = req.body.message;
+        const text = req.body.text;
+        const sender = req.body.sender;
+        const message = {
+            sender: sender,
+            text: text
+        };
         messages.push(message);
         res.send(messages);
     });
