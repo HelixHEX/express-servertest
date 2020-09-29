@@ -2,31 +2,8 @@ import express, { Response } from "express";
 
 const main = () => {
   const app = express();
-  var users: Array<any> = [
-    {
-      username: "test",
-      password: "test",
-    },
-  ];
-  var messages: Array<any> = [
-    {
-      sender: "test",
-      text: "Hiiii"
-    },
-    {
-      sender: "test",
-      text: "Hiiii"
-    },
-    {
-      sender: "admin",
-      text: "Hiiii"
-    },
-    {
-      sender: "test",
-      text: "Hiiii"
-    },
-    
-  ];
+  var users: Array<any> = [];
+  var messages: Array<any> = [];
 
   app.get("/", (_, res: Response) => {
     res.send("Hello world");

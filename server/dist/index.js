@@ -6,30 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const main = () => {
     const app = express_1.default();
-    var users = [
-        {
-            username: "test",
-            password: "test",
-        },
-    ];
-    var messages = [
-        {
-            sender: "test",
-            text: "Hiiii"
-        },
-        {
-            sender: "test",
-            text: "Hiiii"
-        },
-        {
-            sender: "admin",
-            text: "Hiiii"
-        },
-        {
-            sender: "test",
-            text: "Hiiii"
-        },
-    ];
+    var users = [];
+    var messages = [];
     app.get("/", (_, res) => {
         res.send("Hello world");
     });
