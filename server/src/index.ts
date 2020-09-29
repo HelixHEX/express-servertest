@@ -28,10 +28,10 @@ const main = () => {
     res.send(messages);
   });
 
-  app.get("/login", (req, res: Response) => {
+  app.get("/login", async (req, res: Response) => {
     const username = req.query.username;
     const password = req.query.password;
-    users.forEach((user) => {
+    await users.forEach((user) => {
       if (username == user.username) {
         if (password == user.password) {
           res.send({ response: "success" });
@@ -44,11 +44,11 @@ const main = () => {
     });
   });
 
-  app.get("/signup", (req, res: Response) => {
+  app.get("/signup", async (req, res: Response) => {
     const username = req.query.username;
     const password = req.query.password;
     var exists = false;
-    users.forEach((user) => {
+    await users.forEach((user) => {
       if (username == user.username) {
         exists = true;
       }
