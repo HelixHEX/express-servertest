@@ -47,6 +47,10 @@ const main = () => {
             text: text
         };
         messages.push(message);
+        console.log(messages);
+        if (messages.length > 4) {
+            messages.shift();
+        }
         res.send(messages);
     });
     app.get("/login", (req, res) => {
