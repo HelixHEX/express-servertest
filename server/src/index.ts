@@ -18,6 +18,9 @@ const main = () => {
     },
   ]
 
+  app.get("/", (res: Response) => {
+    res.send("Hello world")
+  })
   app.get("/allusers", (_,res: Response) => {
     res.send(users)
   })
