@@ -24,9 +24,6 @@ const main = () => {
       text: text
     }
     messages.push(message);
-    if (messages.length > 4) {
-      messages.shift();
-    }
     console.log(messages)
     res.send(messages);
   });
