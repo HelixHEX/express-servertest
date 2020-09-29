@@ -31,12 +31,12 @@ const main = () => {
     users.forEach(user => {
       if (username == user.username) {
         if (password == user.password) {
-          res.send("success")
+          res.send({"response": "Incorrect username/password"})
         } else {
-          res.send("Incorrect username/password");
+          res.send({"response": "Incorrect username/password"});
         }
       } else {
-        res.send("Incorrect username/password");
+        res.send({"response": "Incorrect username/password"});
       }
     })
   })
