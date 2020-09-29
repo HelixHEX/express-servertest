@@ -20,7 +20,7 @@ const main = () => {
             username: "randomusername"
         },
     ];
-    app.get("/", (res) => {
+    app.get("/", (_, res) => {
         res.send("Hello world");
     });
     app.get("/allusers", (_, res) => {
