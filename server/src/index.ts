@@ -8,7 +8,25 @@ const main = () => {
       password: "test",
     },
   ];
-  var messages: Object[] = [];
+  var messages: Array<any> = [
+    {
+      sender: "test",
+      text: "Hiiii"
+    },
+    {
+      sender: "test",
+      text: "Hiiii"
+    },
+    {
+      sender: "admin",
+      text: "Hiiii"
+    },
+    {
+      sender: "test",
+      text: "Hiiii"
+    },
+    
+  ];
 
   app.get("/", (_, res: Response) => {
     res.send("Hello world");

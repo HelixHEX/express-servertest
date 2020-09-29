@@ -12,7 +12,24 @@ const main = () => {
             password: "test",
         },
     ];
-    var messages = [];
+    var messages = [
+        {
+            sender: "test",
+            text: "Hiiii"
+        },
+        {
+            sender: "test",
+            text: "Hiiii"
+        },
+        {
+            sender: "admin",
+            text: "Hiiii"
+        },
+        {
+            sender: "test",
+            text: "Hiiii"
+        },
+    ];
     app.get("/", (_, res) => {
         res.send("Hello world");
     });
