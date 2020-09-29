@@ -31,17 +31,20 @@ const main = () => {
   app.get("/login", (req, res: Response) => {
     const username = req.query.username;
     const password = req.query.password;
-    users.forEach(user => {
-      if (username == user.username) {
-        if (password == user.password) {
-          res.send({ response: "success" });
+    if (users.length >= 1) {
+      users.forEach(user => {
+        if (username == user.username) {
+          if (password == user.password) {
+            res.send({ response: "success" });
+          } else {
+            res.send({ response: "Incorrect username/password" });
+          }
         } else {
           res.send({ response: "Incorrect username/password" });
         }
-      } else {
-        res.send({ response: "Incorrect username/password" });
-      }
-    });
+      });
+    } 
+    res.send({ response: "No users"});
   });
 
   app.get("/signup", (req, res: Response) => {
