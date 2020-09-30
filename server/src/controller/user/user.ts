@@ -16,10 +16,10 @@ router.get('/signup', async (req: express.Request, res: express.Response) => {
       password: hashPw
     }).save();
 
-    res.send({response: "success"})
+    res.send({"response": "success"})
     console.log(`${user.username} just joined`)
   } catch(err) {
-    res.send({response: "An error has occurred"})
+    res.send({"response": "An error has occurred"})
   }
 })
 
@@ -34,10 +34,10 @@ router.get('/login', async (req: express.Request, res: express.Response) => {
   }
   const verify = await argon2.verify(user!.password, password)
   if (!verify) {
-    res.send({response: "Incorrect Username/Password"})
+    res.send({"response": "Incorrect Username/Password"})
   }
 
-  res.send({response: "success"}) 
+  res.send({"response": "success"}) 
 })
 
 module.exports = router

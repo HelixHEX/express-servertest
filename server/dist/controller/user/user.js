@@ -26,11 +26,11 @@ router.get('/signup', (req, res) => __awaiter(void 0, void 0, void 0, function* 
             username,
             password: hashPw
         }).save();
-        res.send({ response: "success" });
+        res.send({ "response": "success" });
         console.log(`${user.username} just joined`);
     }
     catch (err) {
-        res.send({ response: "An error has occurred" });
+        res.send({ "response": "An error has occurred" });
     }
 }));
 router.get('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -43,9 +43,9 @@ router.get('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
     const verify = yield argon2_1.default.verify(user.password, password);
     if (!verify) {
-        res.send({ response: "Incorrect Username/Password" });
+        res.send({ "response": "Incorrect Username/Password" });
     }
-    res.send({ response: "success" });
+    res.send({ "response": "success" });
 }));
 module.exports = router;
 //# sourceMappingURL=user.js.map
