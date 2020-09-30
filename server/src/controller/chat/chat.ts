@@ -17,8 +17,19 @@ router.get('/loadmessages', async (req, res) => {
   }
 
   const messages = await Message.find({})
-  console.log(messages)
 
+  res.send({"response": "success", "messages": messages})
+})
+
+router.get('/allmessages', async (req, res) => {
+  const { query } = req;
+  const uuid: string = query.uuid as string;
+
+  if (uuid != process.env.ADMINUUID) {
+    res.send({"response": "Admin access required"})
+  }
+
+  const messages = await Message.find({})
   res.send({"response": "success", "messages": messages})
 })
 

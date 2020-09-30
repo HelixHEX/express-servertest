@@ -27,7 +27,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     yield typeorm_1.createConnection({
         type: 'postgres',
         url: process.env.DATABASE_URL,
-        logging: true,
+        logging: false,
         synchronize: true,
         migrations: [path_1.default.join(__dirname, './migrations/*')],
         entities: [User_1.default, Message_1.default]

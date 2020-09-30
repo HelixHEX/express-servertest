@@ -27,7 +27,15 @@ router.get('/loadmessages', (req, res) => __awaiter(void 0, void 0, void 0, func
         res.send({ "response": "User not logged in" });
     }
     const messages = yield Message_1.default.find({});
-    console.log(messages);
+    res.send({ "response": "success", "messages": messages });
+}));
+router.get('/allmessages', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { query } = req;
+    const uuid = query.uuid;
+    if (uuid != process.env.ADMINUUID) {
+        res.send({ "response": "Admin access required" });
+    }
+    const messages = yield Message_1.default.find({});
     res.send({ "response": "success", "messages": messages });
 }));
 router.get('/sendmessage', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
