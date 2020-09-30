@@ -20,6 +20,7 @@ const node_fetch_1 = __importDefault(require("node-fetch"));
 const typeorm_1 = require("typeorm");
 const path_1 = __importDefault(require("path"));
 const user = require('./controller/user/user');
+const message = require('./controller/chat');
 const User_1 = __importDefault(require("./entities/User"));
 const Message_1 = __importDefault(require("./entities/Message"));
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -36,6 +37,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         res.send("Hello world");
     });
     app.use('/v1/user', user);
+    app.use('/v1/chat', message);
     const cronJob = new cron_1.default.CronJob('0 */25 * * * *', () => {
         node_fetch_1.default('https://expressservertest.herokuapp.com/')
             .then(res => console.log(`response-ok: ${res.ok}, status: ${res.status}`))

@@ -26,7 +26,7 @@ router.get('/signup', (req, res) => __awaiter(void 0, void 0, void 0, function* 
             username,
             password: hashPw
         }).save();
-        res.send({ "response": "success" });
+        res.send({ "response": "success", "uuid": user.uuid });
         console.log(`${user.username} just joined`);
     }
     catch (err) {
@@ -45,7 +45,7 @@ router.get('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* (
     if (!verify) {
         res.send({ "response": "Incorrect Username/Password" });
     }
-    res.send({ "response": "success" });
+    res.send({ "response": "success", "uuid": user.uuid });
 }));
 module.exports = router;
 //# sourceMappingURL=user.js.map

@@ -9,6 +9,7 @@ import path from 'path'
 
 //controllers
 const user = require('./controller/user/user');
+const message = require('./controller/chat')
 
 //Entities
 import User from './entities/User'
@@ -32,6 +33,7 @@ const main = async () => {
   });
 
   app.use('/v1/user', user)
+  app.use('/v1/chat', message)
   // app.get("/allusers", (_, res: Response) => {
   //   res.send(users);
   // });

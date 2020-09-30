@@ -16,7 +16,7 @@ router.get('/signup', async (req: express.Request, res: express.Response) => {
       password: hashPw
     }).save();
 
-    res.send({"response": "success"})
+    res.send({"response": "success", "uuid": user!.uuid})
     console.log(`${user.username} just joined`)
   } catch(err) {
     res.send({"response": "An error has occurred"})
@@ -37,7 +37,7 @@ router.get('/login', async (req: express.Request, res: express.Response) => {
     res.send({"response": "Incorrect Username/Password"})
   }
 
-  res.send({"response": "success"}) 
+  res.send({"response": "success", "uuid": user!.uuid}) 
 })
 
 module.exports = router
