@@ -9,7 +9,7 @@ import path from 'path'
 
 //controllers
 const user = require('./controller/user/user');
-const message = require('./controller/chat')
+const message = require('./controller/chat/chat')
 
 //Entities
 import User from './entities/User'

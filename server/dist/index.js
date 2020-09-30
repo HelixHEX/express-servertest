@@ -20,7 +20,7 @@ const node_fetch_1 = __importDefault(require("node-fetch"));
 const typeorm_1 = require("typeorm");
 const path_1 = __importDefault(require("path"));
 const user = require('./controller/user/user');
-const message = require('./controller/chat');
+const message = require('./controller/chat/chat');
 const User_1 = __importDefault(require("./entities/User"));
 const Message_1 = __importDefault(require("./entities/Message"));
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
