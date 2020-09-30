@@ -52,7 +52,7 @@ router.get('/sendmessage', async (req, res) => {
     sender,
     userUUID: uuid
   }).save()
-
+  console.log(`${sender}: ${text}`)
   res.send({"response": "sucess", "Message": message})
 })
 

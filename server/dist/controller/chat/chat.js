@@ -55,6 +55,7 @@ router.get('/sendmessage', (req, res) => __awaiter(void 0, void 0, void 0, funct
         sender,
         userUUID: uuid
     }).save();
+    console.log(`${sender}: ${text}`);
     res.send({ "response": "sucess", "Message": message });
 }));
 module.exports = router;
