@@ -42,7 +42,7 @@ router.get('/sendmessage', async (req, res) => {
     userUUID: uuid
   }).save()
 
-  res.send({"Response": "sucess", "Message": message})
+  res.send({"response": "sucess", "Message": message})
 })
 
 module.exports = router

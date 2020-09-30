@@ -47,7 +47,7 @@ router.get('/sendmessage', (req, res) => __awaiter(void 0, void 0, void 0, funct
         sender,
         userUUID: uuid
     }).save();
-    res.send({ "Response": "sucess", "Message": message });
+    res.send({ "response": "sucess", "Message": message });
 }));
 module.exports = router;
 //# sourceMappingURL=chat.js.map
