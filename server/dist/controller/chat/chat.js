@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const Message_1 = __importDefault(require("../..//entities/Message"));
 const router = express_1.default.Router();
-router.get('/loadmessages', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/loadmessages', (_, res) => __awaiter(void 0, void 0, void 0, function* () {
     const messages = yield Message_1.default.find({});
     res.send({ "response": messages });
 }));
