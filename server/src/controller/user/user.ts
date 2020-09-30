@@ -28,7 +28,7 @@ router.get('/login', async (req: express.Request, res: express.Response) => {
   const username: string = query.username as string
   const password: string = query.password as string 
 
-  const user = await User.findOne({where:{username}, select: ['username', 'password']});
+  const user = await User.findOne({where:{username}, select: ['username', 'password', 'uuid']});
   if (!user) {
     res.send({resposne: "Incorrect Username/Password"})
   }

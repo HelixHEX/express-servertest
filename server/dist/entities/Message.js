@@ -17,11 +17,15 @@ __decorate([
     __metadata("design:type", String)
 ], Message.prototype, "uuid", void 0);
 __decorate([
-    typeorm_1.Column({ unique: true }),
+    typeorm_1.Column(),
     __metadata("design:type", String)
 ], Message.prototype, "sender", void 0);
 __decorate([
-    typeorm_1.Column({ select: false }),
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Message.prototype, "userUUID", void 0);
+__decorate([
+    typeorm_1.Column(),
     __metadata("design:type", String)
 ], Message.prototype, "text", void 0);
 Message = __decorate([

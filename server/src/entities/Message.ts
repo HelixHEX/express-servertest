@@ -5,9 +5,12 @@ export default class Message extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   uuid: string;
 
-  @Column({ unique: true})
+  @Column()
   sender!: string;
 
-  @Column({ select: false })
+  @Column()
+  userUUID!: string;
+
+  @Column()
   text!: string;
 }

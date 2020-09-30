@@ -37,7 +37,7 @@ router.get('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const { query } = req;
     const username = query.username;
     const password = query.password;
-    const user = yield User_1.default.findOne({ where: { username }, select: ['username', 'password'] });
+    const user = yield User_1.default.findOne({ where: { username }, select: ['username', 'password', 'uuid'] });
     if (!user) {
         res.send({ resposne: "Incorrect Username/Password" });
     }

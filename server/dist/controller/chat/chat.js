@@ -13,11 +13,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const Message_1 = __importDefault(require("../..//entities/Message"));
+const Message_1 = __importDefault(require("../../entities/Message"));
+const User_1 = __importDefault(require("../../entities/User"));
 const router = express_1.default.Router();
-router.get('/loadmessages', (_, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/loadmessages', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { query } = req;
+    const uuid = query.uuid;
+    const user = yield User_1.default.findOne({ where: { uuid: uuid } });
+    if (!user) {
+        res.send({ "response": "User not found" });
+    }
+    if (uuid == "bc261a38-caea-41da-987e-def6d11f0e61") {
+        res.send({ "response": "User not logged in" });
+    }
     const messages = yield Message_1.default.find({});
-    res.send({ "response": messages });
+    console.log(messages);
+    res.send({ "response": "success", "messages": messages });
+}));
+router.get('/sendmessage', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { query } = req;
+    const text = query.text;
+    const sender = query.sender;
+    const uuid = query.uuid;
+    const user = yield User_1.default.findOne({ where: { uuid: uuid } });
+    if (!user) {
+        res.send({ "response": "User not found" });
+    }
+    if (uuid == "bc261a38-caea-41da-987e-def6d11f0e61") {
+        res.send({ "response": "User not logged in" });
+    }
+    const message = yield Message_1.default.create({
+        text,
+        sender,
+        userUUID: uuid
+    }).save();
+    res.send({ "Response": "sucess", "Message": message });
 }));
 module.exports = router;
 //# sourceMappingURL=chat.js.map
