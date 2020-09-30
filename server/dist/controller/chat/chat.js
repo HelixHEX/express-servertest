@@ -18,12 +18,15 @@ const User_1 = __importDefault(require("../../entities/User"));
 const router = express_1.default.Router();
 router.get('/loadmessages', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { query } = req;
-    const uuid = query.uuid;
+    var uuid = query.uuid;
     const user = yield User_1.default.findOne({ where: { uuid: uuid } });
     if (!user) {
         res.send({ "response": "User not found" });
     }
-    if (uuid == "bc261a38-caea-41da-987e-def6d11f0e61") {
+    if (uuid == "default") {
+        uuid = process.env.DEFAULTUUID;
+    }
+    if (uuid == process.env.DEFAULTUUID) {
         res.send({ "response": "User not logged in" });
     }
     const messages = yield Message_1.default.find({});
@@ -42,12 +45,15 @@ router.get('/sendmessage', (req, res) => __awaiter(void 0, void 0, void 0, funct
     const { query } = req;
     const text = query.text;
     const sender = query.sender;
-    const uuid = query.uuid;
+    var uuid = query.uuid;
     const user = yield User_1.default.findOne({ where: { uuid: uuid } });
     if (!user) {
         res.send({ "response": "User not found" });
     }
-    if (uuid == "bc261a38-caea-41da-987e-def6d11f0e61") {
+    if (uuid == "default") {
+        uuid = process.env.DEFAULTUUID;
+    }
+    if (uuid == process.env.DEFAULTUUID) {
         res.send({ "response": "User not logged in" });
     }
     const message = yield Message_1.default.create({

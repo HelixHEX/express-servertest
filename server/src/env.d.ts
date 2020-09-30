@@ -3,5 +3,6 @@ declare namespace NodeJS {
     DATABASE_URL: string;
     PORT: string;
     ADMINUUID: string;
+    DEFAULTUUID: string;
   }
 }

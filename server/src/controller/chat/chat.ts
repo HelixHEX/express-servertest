@@ -6,13 +6,16 @@ const router = express.Router()
 
 router.get('/loadmessages', async (req, res) => {
   const { query } = req;
-  const uuid: string = query.uuid as string;
+  var uuid: string = query.uuid as string;
 
   const user = await User.findOne({where: {uuid: uuid}})
   if (!user) {
     res.send({"response": "User not found"})
   }
-  if (uuid == "bc261a38-caea-41da-987e-def6d11f0e61") {
+  if (uuid == "default") {
+    uuid = process.env.DEFAULTUUID
+  }
+  if (uuid == process.env.DEFAULTUUID) {
     res.send({"response": "User not logged in"}) 
   }
 
@@ -37,13 +40,16 @@ router.get('/sendmessage', async (req, res) => {
   const { query } = req;
   const text: string = query.text as string;
   const sender: string = query.sender as string;
-  const uuid: string = query.uuid as string;
+  var uuid: string = query.uuid as string;
 
   const user = await User.findOne({where: {uuid: uuid}})
   if (!user) {
     res.send({"response": "User not found"})
   }
-  if (uuid == "bc261a38-caea-41da-987e-def6d11f0e61") {
+  if (uuid == "default") {
+    uuid = process.env.DEFAULTUUID
+  }
+  if (uuid == process.env.DEFAULTUUID) {
     res.send({"response": "User not logged in"}) 
   }
 
