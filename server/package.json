@@ -6,8 +6,8 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon ./dist/index.js",
-    "devRun": "node ./dist/index.js",
-    "start": "concurrently --kill-others \"tsc -w\" \"node dist/index.js\""
+    "start": "node ./dist/index.js",
+    "devRun": "concurrently --kill-others \"tsc -w\" \"node dist/index.js\""
   },
   "keywords": [],
   "author": "",
