@@ -37,7 +37,7 @@ router.get('/login', async (req: express.Request, res: express.Response) => {
     res.send({response: "Incorrect Username/Password"})
   }
 
-  res.send({response: "success"})
+  res.send({response: "success"}) 
 })
 
 module.exports = router
