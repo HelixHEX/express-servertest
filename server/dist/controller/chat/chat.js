@@ -61,6 +61,18 @@ router.get('/sendmessage', (req, res) => __awaiter(void 0, void 0, void 0, funct
         sender,
         userUUID: uuid
     }).save();
+    if (uuid != process.env.ADMINUUID) {
+        yield Message_1.default.create({
+            text: "Automated Message: Welcome to my chat application, thanks for trying out it out.",
+            sender: "admin",
+            userUUID: process.env.ADMINUUID
+        }).save();
+        yield Message_1.default.create({
+            text: "For bug reports, DM on on instagram @dandeproductions",
+            sender: "admin",
+            userUUID: process.env.ADMINUUID
+        }).save();
+    }
     console.log(`${sender}: ${text}`);
     res.send({ "response": "sucess", "Message": message });
 }));
