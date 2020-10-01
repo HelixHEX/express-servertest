@@ -68,7 +68,7 @@ router.get('/sendmessage', (req, res) => __awaiter(void 0, void 0, void 0, funct
             userUUID: process.env.ADMINUUID
         }).save();
         yield Message_1.default.create({
-            text: "Automated Message: For bug reports, DM on on instagram @dandeproductions",
+            text: "Automated Message: For bug reports, DM me on instagram @dandeproductions",
             sender: "admin",
             userUUID: process.env.ADMINUUID
         }).save();
