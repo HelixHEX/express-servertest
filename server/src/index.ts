@@ -27,7 +27,10 @@ const main = async () => {
   })
 
   const app = express();
-
+  app.use((_, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
   app.get("/", (_, res: Response) => {
     res.send("Hello world");
   });

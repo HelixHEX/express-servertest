@@ -33,6 +33,10 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         entities: [User_1.default, Message_1.default]
     });
     const app = express_1.default();
+    app.use((_, res, next) => {
+        res.header('Access-Control-Allow-Origin', '*');
+        next();
+    });
     app.get("/", (_, res) => {
         res.send("Hello world");
     });
